@@ -1,0 +1,119 @@
+############################################
+### ANDROID STUDIO / INTELLIJ
+############################################
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea/caches/
+.idea/libraries/
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/gradle.xml
+.idea/assetWizardSettings.xml
+
+############################################
+### GRADLE
+############################################
+.gradle/
+**/build/
+**/out/
+local.properties
+
+# Signing
+signing.properties
+keystore.properties
+*.keystore
+*.jks
+
+############################################
+### ANDROID / NDK / JNI
+############################################
+captures/
+.cxx/
+obj/
+
+# Native artifacts
+*.o
+*.obj
+*.a
+*.d
+*.so
+
+############################################
+### KOTLIN / JAVA
+############################################
+*.class
+*.jar
+*.war
+*.ear
+*.log
+hs_err_pid*
+replay_pid*
+
+############################################
+### JETPACK COMPOSE
+############################################
+compose-cache/
+compose-metrics/
+compose-report/
+
+############################################
+### GENERATED FILES
+############################################
+**/generated/
+.navigation/
+
+############################################
+### OS / EDITOR NOISE
+############################################
+.DS_Store
+Thumbs.db
+
+############################################
+### FIREBASE / GOOGLE SERVICES
+############################################
+google-services.json
+GoogleService-Info.plist
+
+############################################
+### AAR / XCFRAMEWORK OUTPUT
+############################################
+*.aar
+*.xcframework
+
+############################################
+### FASTLANE
+############################################
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+############################################
+### ANDROID APP BUNDLE
+############################################
+*.aab
+
+############################################
+### CRASHLYTICS
+############################################
+app/src/main/assets/crashlytics-build.properties
+
+############################################
+### FLUTTER MODULE SUPPORT (if exists)
+############################################
+.dart_tool/
+.pub/
+.pub-cache/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+
+############################################
+### RUST / UNIFFI OPTIONAL
+############################################
+target/
+Cargo.lock
+*.dylib
+*.dll
