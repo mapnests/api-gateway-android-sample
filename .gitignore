@@ -37,7 +37,6 @@ obj/
 *.o
 *.obj
 *.a
-*.d
 *.so
 
 ############################################
@@ -79,7 +78,12 @@ GoogleService-Info.plist
 ############################################
 ### AAR / XCFRAMEWORK OUTPUT
 ############################################
+# Ignore all AARs
 *.aar
+# Keep .aar files in .libs folder
+!/.libs/**/*.aar
+
+# Ignore xcframework outputs
 *.xcframework
 
 ############################################
