@@ -22,7 +22,7 @@ Add the Mapnests `config-loader` plugin.
 
 Plugin: `com.mapnests.config-loader:com.mapnests.config-loader.gradle.plugin:2.0.0`
 
-```
+``` groovy
 buildscript {
     repositories {
         mavenLocal()
@@ -42,7 +42,7 @@ buildscript {
 
 Set Java and Kotlin compatibility:
 
-```gradle
+```groovy
 compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -59,6 +59,13 @@ Add SDK libraries from the libs folder:
 ```gradle
 dependencies {
   implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar", "*.aar"))))
+  
+  // okhttp 
+  implementation("com.squareup.okhttp3:okhttp:5.3.2")
+  implementation("com.squareup.okhttp3:logging-interceptor:5.3.2")
+  // Retrofit core
+  implementation("com.squareup.retrofit2:retrofit:3.0.0")
+  implementation("com.squareup.retrofit2:converter-gson:3.0.0")
 }
 ```
 
