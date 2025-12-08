@@ -7,7 +7,7 @@
 ---
 
 ## Onboarding Process
-1. Send email to `apigw@technonext.com` to get `bind_client_config.json`. 
+1. Send email to `apigw@technonext.com` to get `bind_client_config.json`.
 2. Place `bind_client_config.json` in the **root directory** of your project.
 3. Get the SDK `.aar` file from `Sample Project` and place it in your project's `libs` folder.
 4. Follow the Gradle and configuration steps as described below.
@@ -44,9 +44,9 @@ Set Java and Kotlin compatibility:
 
 ```groovy
 compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
 kotlin {
     compilerOptions {
@@ -66,6 +66,8 @@ dependencies {
   // Retrofit core
   implementation("com.squareup.retrofit2:retrofit:3.0.0")
   implementation("com.squareup.retrofit2:converter-gson:3.0.0")
+      
+  implementation("com.lyft.kronos:kronos-android:0.0.1-alpha11")
 }
 ```
 
@@ -135,7 +137,7 @@ val okHttpClient = OkHttpClient.Builder()
 - **Memory management** and **thread safety** are the developer's responsibility.
 - HTTPS is preferred. Only enable HTTP with cleartext traffic if necessary.
 - To update version, change it in **build.gradle.kts**:
-`classpath("com.mapnests.config-loader:com.mapnests.config-loader.gradle.plugin:2.0.0")`
+  `classpath("com.mapnests.config-loader:com.mapnests.config-loader.gradle.plugin:2.0.0")`
 
 ---
 
