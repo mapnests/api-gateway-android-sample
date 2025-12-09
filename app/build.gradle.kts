@@ -9,7 +9,7 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "app.test.com"
+        applicationId = "com.mobilebd.map"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
