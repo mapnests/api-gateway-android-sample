@@ -1,22 +1,16 @@
 {
-  "key_id": "596715217430250175",
+  "key_id": "597003091069371074",
   "packages": [
-    "com.mobilebd.map",
-    "com.mobilebd.map.debug",
-    "com.mobilebd.map.prod",
-    "com.mobilebd.map.android",
-    "com.mobilebd.map.ios"
+    "com.rideshare.test",
+    "com.rideshare.dev"
   ],
   "sha256": [
     "",
-    "",
-    "",
-    "",
     ""
   ],
-  "public_key": "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUF3ZjBtTnB1d1V0ajF3WDdwbVNVSwpvVXNMU3grZUp3SjNsNC9JaHZmT2UwaGdxT2h4WFdwSTFrMlZTS2kwSUhHbnd3aXEyUjdNYnZJamg2blFoNkJHCjhIZmdQQlRHZEFTMzdOV3I1WElHakRRVlpIUXNSMDVSUUVzY0xYQjAxTWFhTUdqQzN5bWpEV0FPRDgvd0VISnoKSnh0S09kczRtRUZuTU9MKzBNKzMwMEpBWGwrMmFHT3N2Z3FOdTFKMnBlTkxSZEtGWDB2c0VobGl0NjZ5dVN6QQpBVC96NUVnQmFzUFliWHJBOHZoRVpKSWZMbWY0U1RUVXJJd3F6THVWdWZkR0xwQ0RDdW9RM2MrMHB6dDRxRlJZCnNmQ0NDUUF3Q25JbGd4WlgxWmtRUjdna2toejB2Z09sTWVWWldLdTRSeldwd3hUTHZKelNhNWs5eUI4N1pCNlIKZFFJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tCg==",
+  "public_key": "LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUF3bUVuM3JGVTV4S0NDZVROeXorQwo3Nm9qeVhXTG1kWkU4SUIxYVFoRHdMVWptNWZGd2Fld2d0UTljSG5XV3ZIL0xLQ0h5NXZxTE5ETlZkRkJwQno5CjhNME9PeHFNMXh2N1RkaU9DWGZ1NS9mcUJxYjlqQ2hVQUNhbjZNdkxBa3NJSm1tSmVEbHBQOEpWRFVDQVVOeSsKRGtxVXJ5d3ZVdkVaMmhrT2ZLWmROUERUYUpsSFd3aFNzdGxhUk1JYitoMmNiTXJQV1RpL1dmZTlTSUxaRnI1cQp0ZGVUMmRYeTZmZWdxUHNvcEpLV2tiWStDZkM2S2VvSE5KWnFqWWw1NklTQk4rbDEzUU5NMU1DQkx5MzRZWVljCncrZFdmZHIvdnJ3S3pMck53RDJHWGpvalZiWGg5enBzWTdHbXVSZkpSZHJ0Q3VmSHBHS0dWSUYyVXdTVWdpZGwKNXdJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0tCg==",
   "alg": "RSA-OAEP",
   "hash": "SHA-256",
-  "client_identity": "x-client-identity",
-  "key_identifier": "x-key-identity"
+  "client_identity": "cf-cid",
+  "key_identifier": "cf-kid"
 }
