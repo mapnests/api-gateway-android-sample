@@ -1,5 +1,9 @@
 # API Gateway SDK Integration
 
+## Changelog (v2.0.1)
+
+- Bug fix - New generated bind-client-config.json not working
+
 ## Changelog (v1.0.0)
 - Initial integration of the API Gateway SDK.
 - Supports **Retrofit** and **OkHttp** only.
@@ -43,6 +47,11 @@ buildscript {
 Set Java and Kotlin compatibility:
 
 ```groovy
+plugins {
+  // other gradle plugins
+  id("com.mapnests.config-loader")
+}
+
 compileOptions {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
@@ -94,6 +103,75 @@ val okHttpClient = OkHttpClient.Builder()
     .build()
 ```
 
+### PROJECT MUST BE GRADLE CLEAN AND GRADLE SYNCED BEFORE USE
+
+---
+
+## Implementation Example with Retrofit
+
+**Note: Must use correct URL (consult with api gateway team if needed)**
+
+```kotlin
+fun performApiCall(context: Context, onLogUpdate: (String) -> Unit) {
+    val retrofit = create("http://example.baseURL/api/", context)
+    val apiService = retrofit.create(ApiService::class.java)
+    val call = apiService.getRandomDog()
+
+    val startTime = System.currentTimeMillis()
+    val startTimeFormatted = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
+        .format(Date(startTime))
+
+    // Initial log
+    val request = call.request()
+
+    onLogUpdate(
+        "Request started at: $startTimeFormatted\n" +
+                "Request URL: ${request.url}\n" +
+                "Request Method: ${request.method}\n" +
+                "Waiting for response..."
+    )
+
+    call.enqueue(object : Callback<ResponseBody?> {
+        override fun onResponse(call: Call<ResponseBody?>, response: Response<ResponseBody?>) {
+            val endTime = System.currentTimeMillis()
+            val duration = endTime - startTime
+
+            val requestHeaders = response.raw().request.headers.toMultimap()
+                .entries.joinToString("\n") { (key, values) -> "$key: ${values.joinToString(", ")}" }
+
+            val bodyText = response.body()?.string() ?: response.errorBody()?.string() ?: "No body"
+
+            val logText = "Request started at: $startTimeFormatted\n" +
+                    "Duration: ${duration}ms\n\n" +
+                    "Request URL: ${response.raw().request.url}\n" +
+                    "Request Method: ${response.raw().request.method}\n\n" +
+                    "Request Headers:\n$requestHeaders\n\n" +
+                    "Response Body:\n$bodyText"
+
+            Log.d("MainActivity", logText)
+            onLogUpdate(logText)
+        }
+
+        override fun onFailure(call: Call<ResponseBody?>, t: Throwable) {
+            val endTime = System.currentTimeMillis()
+            val duration = endTime - startTime
+            val sentRequestHeaders = call.request().headers.toMultimap()
+                .entries.joinToString("\n") { (key, values) -> "$key: ${values.joinToString(", ")}" }
+
+            val logText = "Request started at: $startTimeFormatted\n" +
+                    "Duration: ${duration}ms\n\n" +
+                    "Request URL: ${call.request().url}\n" +
+                    "Request Method: ${call.request().method}\n\n" +
+                    "Request Headers:\n$sentRequestHeaders\n\n" +
+                    "Failure: ${t.message}"
+
+            Log.e("MainActivity", logText)
+            onLogUpdate(logText)
+        }
+    })
+}
+```
+
 ---
 
 ## Request
@@ -140,6 +218,12 @@ val okHttpClient = OkHttpClient.Builder()
   `classpath("com.mapnests.config-loader:com.mapnests.config-loader.gradle.plugin:2.0.0")`
 
 ---
+
+## Common Fixes
+
+- Invalidate Caches from android studio (check "clear file system cache")
+- Delete Build files
+- Gradle Clean and Sync project
 
 ## Support
 
