@@ -11,8 +11,9 @@
 ---
 
 ## Onboarding Process
-1. Send email to `apigw@technonext.com` to get `bind_client_config.json`.
-2. Place `bind_client_config.json` in the **root directory** of your project.
+
+1. Send email to `apigw@technonext.com` to get `bind-client-config.json`.
+2. Place `bind-client-config.json` in the **root directory** of your project.
 3. Get the SDK `.aar` file from `Sample Project` and place it in your project's `libs` folder.
 4. Follow the Gradle and configuration steps as described below.
 5. Add  `ApiGateWayInterceptor` at the bottom of your OkHttp client interceptor chain.
@@ -99,7 +100,7 @@ dependencies {
 ```kotlin
 val okHttpClient = OkHttpClient.Builder()
     // other interceptors
-    .addInterceptor(ApiGateWayInterceptor())
+    .addInterceptor(ApiGateWayInterceptor(context))
     .build()
 ```
 
