@@ -1,5 +1,12 @@
 # API Gateway SDK Integration
 
+## Changelog (v3.0.0)
+
+- Updated config-loader gradle plugin to 4.0.0
+- Implemented caching system
+- Changed encryption algorithms
+- Implemented platform specific config
+
 ## Changelog (v2.0.1)
 
 - Bug fix - New generated bind-client-config.json not working
@@ -12,7 +19,7 @@
 
 ## Onboarding Process
 
-1. Send email to `apigw@technonext.com` to get `bind-client-config.json`.
+1. Send email mentioning all of your package names (com.example.debug, com.example.release etc) and send to `apigw@technonext.com` to get `bind-client-config.json`.
 2. Place `bind-client-config.json` in the **root directory** of your project.
 3. Get the SDK `.aar` file from `Sample Project` and place it in your project's `libs` folder.
 4. Follow the Gradle and configuration steps as described below.
@@ -25,7 +32,7 @@
 ### Root `build.gradle.kts`
 Add the Mapnests `config-loader` plugin.
 
-Plugin: `com.mapnests.config-loader:com.mapnests.config-loader.gradle.plugin:2.0.0`
+Plugin: `com.mapnests.config-loader:com.mapnests.config-loader.gradle.plugin:4.0.0`
 
 ``` groovy
 buildscript {
@@ -38,7 +45,7 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:8.13.1")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.2.21")
-        classpath("com.mapnests.config-loader:com.mapnests.config-loader.gradle.plugin:2.0.0")
+        classpath("com.mapnests.config-loader:com.mapnests.config-loader.gradle.plugin:4.0.0")
     }
 }
 ```
@@ -84,7 +91,7 @@ dependencies {
 ### Configuration
 
 - Place bind_client_config.json in the root of your project.
-- Ensure the app_id in JSON matches the application ID in Gradle.
+- Ensure that the app package name must be matched with the package name provided from api gateway team.
 - Add network permission in AndroidManifest.xml:
     ```
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -216,7 +223,7 @@ fun performApiCall(context: Context, onLogUpdate: (String) -> Unit) {
 - **Memory management** and **thread safety** are the developer's responsibility.
 - HTTPS is preferred. Only enable HTTP with cleartext traffic if necessary.
 - To update version, change it in **build.gradle.kts**:
-  `classpath("com.mapnests.config-loader:com.mapnests.config-loader.gradle.plugin:2.0.0")`
+  `classpath("com.mapnests.config-loader:com.mapnests.config-loader.gradle.plugin:4.0.0")`
 
 ---
 
@@ -225,6 +232,10 @@ fun performApiCall(context: Context, onLogUpdate: (String) -> Unit) {
 - Invalidate Caches from android studio (check "clear file system cache")
 - Delete Build files
 - Gradle Clean and Sync project
+- Check developers note
+- If you receive a 401 error, recheck the app package name and make sure you are using the correct bind-client-config.json file.
+
+---
 
 ## Support
 

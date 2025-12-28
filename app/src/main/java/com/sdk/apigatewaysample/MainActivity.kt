@@ -114,7 +114,7 @@ fun ScrollableLogBox(logText: String, scrollState: androidx.compose.foundation.S
 
 
 fun performApiCall(context: Context, onLogUpdate: (String) -> Unit) {
-    val retrofit = create("http://192.168.169.231:30702/", context)
+    val retrofit = create("http://192.168.61.103:9080/", context)
     val apiService = retrofit.create(ApiService::class.java)
     val call = apiService.getRandomDog()
 

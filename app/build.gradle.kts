@@ -11,7 +11,7 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.rideshare.test"
+        applicationId = "com.mobilebd.map"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
