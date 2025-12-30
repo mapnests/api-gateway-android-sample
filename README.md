@@ -1,5 +1,10 @@
 # API Gateway SDK Integration
 
+## Changelog (v4.0.0)
+
+- Updated caching strategy
+- Moved to server time synchronization + offset calculation
+
 ## Changelog (v3.0.0)
 
 - Updated config-loader gradle plugin to 4.0.0
@@ -83,8 +88,6 @@ dependencies {
   // Retrofit core
   implementation("com.squareup.retrofit2:retrofit:3.0.0")
   implementation("com.squareup.retrofit2:converter-gson:3.0.0")
-      
-  implementation("com.lyft.kronos:kronos-android:0.0.1-alpha11")
 }
 ```
 
@@ -182,19 +185,15 @@ fun performApiCall(context: Context, onLogUpdate: (String) -> Unit) {
 
 ---
 
-## Request
+## Request Headers
 ```json
 {
-  "method": "GET",
-  "url": "http://192.168.61.103:9080/load-test/api/auth-casbin-success-plugin-test",
-  "timestamp": "2025-12-07 15:51:32.497",
-  "headers": {
-    "Client-Header-Name1": "xxxxxx",
-    "Client-Header-Name2": "yyyyyy",
-    "x-client-identity": "KlD0r8ocjAqEbzeEqiQYeycvIKuKimA6btcfgGqUcDo1DXOBR8M+z6XKwa/uP0ee1H4Di53awaeZrh8vsbd6H0RSTs+By0cmSl6XROCpupDPdPfT78cCchjF+LC7oCFbnztVAPXKhTercr2zcRE7uLQA1Yfmx7xbinYGrFCud0fZbdqYWLp6i9sycXQjvVFpw7G2bz2x2IWNY/SzhWuSU31rnjpZMdI0RLNy/zUu2awj5LBmO0zk0cRYTnhWnZLCmbCiuu0I+Ag6UJm/H9hqJecB59NmTyqWUzRK/tUNnpcQhC2WGneyb9gAa25mfQ1xcYYL7WWk5Xc1ci5nx3/alQ==",
-    "x-key-identity": "596119440572023487"
-  },
-  "request_id": "1765101092497"
+  "cf-cid": "UglPQ2IHUSUr+6Tjq5vlAT+4R0DSOg1CSonlt8kGI8ZKtLlaD1mLTFRnZf7/BPMSAsbv9I0oJ5+EKPLvXaC5otUL7/vS9T6g8MemOLuGHfTxbtdVL0BhXbb+R0nEnchJ9CmoQrF6JTl4ZhzW0GWpMnN4TsdKHJUbQSF45ocJCBgnyQ/ncr3ni7dx1J4RbX/sxvRZIKU=",
+  "cf-csid": "tMEKJ3bpbikAw6q2pXe6xltKh4OiZYoTMAhkRGTgdzNG8s6Au72QKQn1s8Fa+/CH/kNTV/W2g4V9PsYH0N1Swdn3GRos58CTQqCmBVk1xvc80TmV/LJ0EidW3HWpjodQvTxUqUQAcX408HjPDL7FlLowS4eBfsqL3u6UOoe4FuYrcTmWQObhUx/DRtjxR6Dnso67dRagIHQJbSq5H7WsLhPlADlzZEqAL0XmnT3bllsPglo/gcaos8zyh4PlRA1g1QD+gJ3ah3ZxjTt+NzCHjX/hIjio+lr2wZSIOgs4QnGp3pi53dKZj25p9YthcDuHAeoVVA3ZZ5mrm+qHv2GS3w==",
+  "cf-kid": "597003091069371074",
+  "Client-Header-Name1": "xxxxxx",
+  "Client-Header-Name2": "yyyyyy",
+  "x-client-platform": "android"
 }
 ```
 

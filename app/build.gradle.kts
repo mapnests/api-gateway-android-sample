@@ -73,8 +73,6 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:3.0.0")
     implementation("com.squareup.retrofit2:converter-gson:3.0.0")
 
-    implementation("com.lyft.kronos:kronos-android:0.0.1-alpha11")
-
     implementation("io.nerdythings:okhttp-profiler:1.1.1")
 
 }
