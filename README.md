@@ -1,5 +1,9 @@
 # API Gateway SDK Integration
 
+## Changelog (v5.0.0)
+
+- Updated SDK for flutter and react native support
+
 ## Changelog (v4.0.0)
 
 - Updated caching strategy
@@ -232,7 +236,7 @@ fun performApiCall(context: Context, onLogUpdate: (String) -> Unit) {
 - Delete Build files
 - Gradle Clean and Sync project
 - Check developers note
-- If you receive a 401 error, recheck the app package name and make sure you are using the correct bind-client-config.json file.
+- If you receive a 401 error, recheck the app package name, make sure you are using the correct baseurl and bind-client-config.json file.
 
 ---
 
